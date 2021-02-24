@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = "~/views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "CreateMessage";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateMessage</title>
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">*@
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+
+        .purple-border textarea {
+            border: 1px solid #ba68c8;
+        }
+
+        .purple-border .form-control:focus {
+            border: 1px solid #ba68c8;
+            box-shadow: 0 0 0 0.2rem rgba(186, 104, 200, .25);
+        }
+
+        .green-border-focus .form-control:focus {
+            border: 1px solid #8bc34a;
+            box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+        }
+    </style>
+</head>
+<body>
+
+    <form action="~/Message/CreateMessage" enctype="multipart/form-data" class="horizontal-form" method="post" name="myForm">
+
+        <span class="form-group purple-border">
+            <label for="exampleFormControlTextarea4"><b>Receivers mobile numbers</b></label>
+            <textarea class="form-control" placeholder="Enter Mobile numbers..." id="exampleFormControlTextarea4" rows="5" style="width:400px;" name="ph_textarea"></textarea>
+        </span>
+
+
+        <span class="form-group purple-border" style="position:absolute;margin-left:500px;top:30px;">
+            <label for="exampleFormControlTextarea5"><b>TextMessage</b></label>
+            <textarea class="form-control" placeholder="Enter Textmessage..." id="exampleFormControlTextarea5" rows="5" style="width:400px;" name="msg_textarea"></textarea>
+        </span>
+        <br /><br />
+
+        <span style="margin-left:19%;">
+            <b> Use Random Text:</b>
+
+            <select>
+                <option value="No">No</option>
+                <option value="No">Yes</option>
+            </select>
+        </span>
+
+        <span class="btn purple fileinput-button" style="margin-left:100px;">
+            <i class="fa fa-plus"></i>
+            <span> Add files... </span>
+            <input type="file" class="multiple" name="files" accept=".png,.jpg,.jpeg,.pdf">
+        </span>
+
+
+        <div style="margin-left:200px;">
+
+
+
+            @*<button type="submit" class="btn  green"><i class="fa fa-send"></i></button>*@
+
+            <br /><br /><br /><br />
+            <div style="margin-left:13%;">
+                <button type="submit" class="btn green" style="margin-left:0%;">
+                    <i class="fa fa-send"></i>&nbsp; Send
+                </button>
+
+
+                <button type="reset" class="btn green" style="margin-left:10%;">
+                    <i class="fa fa-eraser"></i>&nbsp; Clear
+                </button>
+            </div>
+        </div>
+
+    </form>
+    @if (ViewBag.Success == 1)
+    {
+        <label for="success" style="color:rgb(3, 110, 21); margin-left:33%;margin-top:30px;">Inserted Successfully...</label>
+
+    }
+    @*@if (ViewBag.file == 2)
+    {
+        <label for="success" style="color:darkred; margin-left:33%;margin-top:30px;">please choose File...</label>
+    }*@
+
+    @if (ViewBag.Exception != null)
+    {
+        <p style="color:red">Error:@ViewBag.Exception </p>
+    }
+
+    
+    
+</body>
+</html>
+

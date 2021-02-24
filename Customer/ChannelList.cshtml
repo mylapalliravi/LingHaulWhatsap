@@ -1,0 +1,77 @@
+﻿@using Longhaul_BO
+@model List<BO_Message_Recipients_Status>
+
+
+@{
+    ViewBag.Title = "ChannelList";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> @ViewBag.Title - ChannelList</title>
+    <style>
+        tr td {
+        
+        width:5px;
+        }
+    </style>
+</head>
+<body>
+    
+    @if (ViewBag.Exception!=null)
+    {
+    <p style="color:red">Error:@ViewBag.Exception </p> 
+    }
+
+    <div>
+        <h1 style="text-align:center;"><u>ChannelList</u></h1>
+    </div>
+    <div class="portlet box green"style="margin-left:-0%;width:80%">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-comments"></i>Message Recipients Status
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="table-scrollable">
+                <table class="table table-striped table-hover">
+                    <thead>
+
+                        <tr>
+                            <th>Channel Id</th>
+                            <th>Channle Number</th>
+                            <th>Read Incoming</th>
+                            <th>CheckStatus</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ChennelID </td>
+                                <td>@item.ChennelName</td>
+                                <td>@item.ReadIncomming</td>
+                                <td><a href="@Url.Action("status","Customer",new  { id=@item.ChennelID })">ViewStatus</a></td>
+                                <td><input type="submit" value="Restart Channel" /></td>
+                                <td><input type="submit" value="Log off Channel" /></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

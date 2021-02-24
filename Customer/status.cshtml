@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>status</title>
+   
+   
+</head>
+<body>
+    <form action="~/Customer/Logout" method="post">
+        <div style="margin-left:20%">
+
+            @if (ViewBag.Exception != null)
+            {
+            <p style="color:red;margin-left:-18%;">Error: @ViewBag.Exception</p>  
+            }
+
+            @if (ViewBag.img != null)
+            {
+                <div>
+                    <img src="@ViewBag.img" ALT="QRCode">
+                </div>
+                <input type="submit" value="LOGOUT" />
+            }
+
+            <div style="margin-left:6%">
+                <h2> <b>@ViewBag.AccountStatus </b></h2>
+                <h2> <b>@ViewBag.logout </b></h2>
+            </div>
+
+
+
+
+        </div>
+    </form>
+</body>
+</html>

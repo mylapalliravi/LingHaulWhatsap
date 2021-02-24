@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>admin</title>
+    <link href="~/styles/login.css" rel="stylesheet" />
+    <script src="~/scripts/login.js"></script>
+  
+</head>
+
+
+<body>
+    <div>
+
+        <div class="login-page">
+
+            <div class="form">
+
+                <h3><b>User Approval</b></h3>
+
+                <form class="login-form" action="~/Home/admin" method="post">
+                    <input type="text" name="baseppath" placeholder="baseppath" />
+                    <input type="email" name="instance" placeholder="instance" />
+                    <input type="text" name="token" placeholder="token" />
+                    <input type="text" name="remark" placeholder="remark" />
+                    <input type="text" name="approval" placeholder="approval" />
+                    <input type="text" name="approvaldate" placeholder="approvaldate" />
+                    <input type="text" name="channleid" placeholder="channleid" />
+
+                    @*<button>login</button>*@
+                    <div class="submit"><input type="submit" value="Insert" style="background-color:#C3D8FB;font-family:'Times New Roman', Times, serif;" /></div>
+
+                    @*<p class="message">Already registered? @Url.Action("register", "Longhaul") Sign In</p>*@
+                </form>
+
+                @if (ViewBag.Exception != null)
+                {
+                    <p style="color:red">Error:@ViewBag.Exception </p>
+                }
+
+                @if (ViewBag.success == 0)
+                {
+                    <label style="color:green"><b>Registered Successfully</b></label>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Modal Example</h2>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

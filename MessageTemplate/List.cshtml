@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "MessageTemplate";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateMessage</title>
+  
+   
+     <style>
+           input[type=text] {
+                background-color: #5E738B;
+                border: #66b3ff;
+            }
+
+            textarea[type=text] {
+                background-color: #5E738B;
+                border: #66b3ff;
+                
+            }
+
+            input[type=submit] {
+                background-color: #5E738B;
+                border: #66b3ff;
+            }
+
+            input[type=text]:focus {
+                border: #8c66ff;
+            }
+
+            textarea[type=text]:focus {
+                border: #8c66ff;
+            }
+
+            input[type=submit]:focus {
+                border: #8c66ff;
+            }
+        </style>
+
+</head>
+<body style="margin-left:500px;">
+    <div class="container" style="margin-left:10%">
+        <form action="~/MessageTemplate/List" method="post">
+            <h2>Contact Us</h2><br /><br />
+            <span style="margin-left:34%">Date: @ViewBag.Date</span>
+            <input type="text" class="form-control" name="templatetitle" placeholder="TemplateTitle" style="width:600px;color:white;" /><br /><br />
+            @*<div class="form-outline">
+                <input type="text" id="form1" class="form-control" />
+                <label class="form-label" for="form1">Example label</label>
+            </div>*@
+            <textarea type="text" class="form-control" name="Description" rows="6" placeholder="Description" style="width:600px;color:white;">Dear&nbsp;&nbsp;@ViewBag.username</textarea><br /><br />
+            <input type="submit" class="form-control" value="Send Message" style="width: 160px; color: white;" />
+        </form>
+    </div>
+    @if (ViewBag.Exception != null)
+    {
+        <p style="color:red">@ViewBag.Exception</p>
+    }
+
+</body>
+</html>
+
